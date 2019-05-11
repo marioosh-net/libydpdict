@@ -373,6 +373,32 @@ int ydpdict_find_word(const ydpdict_t *pdict, const char *word)
 }
 
 /**
+ * \brief Find specified whole word's index in dictionary starting
+ * from index
+ *
+ * \param dict dictionary description
+ * \param word complete or partial word
+ * \param start start index
+ * 
+ * \return definition index on success, -1 on error
+ */
+int ydpdict_find_whole_word(const ydpdict_t *pdict, const char *word, const int start)
+{
+	const ydpdict_priv_t *dict = pdict;
+	int i = start;
+
+	if (dict == NULL)
+		return -1;
+	
+	for (; i < dict->count; i++) {
+		if (strcasecmp(dict->words[i].word, word) == 0)
+			return i;
+	}
+	
+	return -1;
+}
+
+/**
  * \brief Returns number of words in dictionary
  *
  * \param dict dictionary description
