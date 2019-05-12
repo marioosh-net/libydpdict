@@ -49,6 +49,7 @@ typedef void ydpdict_t;
 ydpdict_t *ydpdict_open(const char *dat, const char *idx, ydpdict_encoding_t encoding);
 int ydpdict_get_count(const ydpdict_t *dict);
 int ydpdict_find_word(const ydpdict_t *dict, const char *word);
+int ydpdict_find_whole_word(const ydpdict_t *pdict, const char *word, const int start);
 const char *ydpdict_get_word(const ydpdict_t *dict, int def);
 char *ydpdict_read_rtf(const ydpdict_t *dict, int def);
 char *ydpdict_read_xhtml(const ydpdict_t *dict, int def);
